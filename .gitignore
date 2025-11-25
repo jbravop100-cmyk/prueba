@@ -1,0 +1,19 @@
+# Ignorar base de datos local (se creará sola al ejecutar el script)
+*.db
+*.sqlite3
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Ignorar entornos virtuales (donde se instalan las librerías)
+venv/
+env/
+.env
+
+# Ignorar logs del sistema
+*.log
+
+# Ignorar archivos del sistema operativo
+.DS_Store
+Thumbs.db
