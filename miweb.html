@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre del Profesional - Ciberseguridad & ML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Iconos de Lucide: Usa la CDN para el uso de iconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-primary: #66fcf1; /* Cian Neón */
+            --color-secondary: #45a29e; /* Azul verdoso */
+            --color-dark: #1f2833; /* Azul Oscuro/Carbón */
+            --color-background: #0b0c10; /* Casi Negro */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+        }
+        .text-neon { color: var(--color-primary); }
+        .bg-dark { background-color: var(--color-dark); }
+        .border-neon { border-color: var(--color-primary); }
+        .shadow-neon { box-shadow: 0 0 15px rgba(102, 252, 241, 0.4); }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(102, 252, 241, 0.3);
+            border-color: var(--color-primary);
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-dark/95 backdrop-blur-sm p-4 border-b border-gray-700/50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#inicio" class="text-xl font-extrabold tracking-widest text-neon">
+                &lt;TuNombre /&gt;
+            </a>
+            <div class="space-x-4 flex">
+                <a href="#proyectos" class="hover:text-neon transition">Proyectos</a>
+                <a href="#habilidades" class="hover:text-neon transition">Habilidades</a>
+                <a href="#contacto" class="hover:text-neon transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Inicio (Hero) -->
+    <header id="inicio" class="pt-24 pb-32 bg-dark flex items-center justify-center">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="w-24 h-24 rounded-full mx-auto mb-6 border-2 border-neon flex items-center justify-center bg-gray-800">
+                <i data-lucide="shield-check" class="w-12 h-12 text-neon"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-white">
+                Analista de <span class="text-neon shadow-neon/50">Ciberseguridad</span>
+            </h1>
+            <h2 class="text-2xl text-gray-400 mb-8">
+                Especialista en Machine Learning para Detección de Amenazas.
+            </h2>
+            <div class="flex justify-center space-x-4">
+                <a href="#proyectos" class="px-6 py-3 bg-neon font-bold text-dark rounded-lg transition hover:shadow-neon">
+                    Ver Proyectos
+                </a>
+                <a href="#contacto" class="px-6 py-3 border border-neon text-neon font-bold rounded-lg transition hover:bg-neon hover:text-dark">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Proyectos -->
+    <section id="proyectos" class="py-20 bg-background px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-12 text-white">
+                <span class="text-neon">//</span> Proyectos Destacados
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <!-- Proyecto 1: IDS (Tu proyecto reciente) -->
+                <div class="project-card p-6 rounded-xl bg-dark border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-500 mr-3"></i>
+                        <h4 class="text-2xl font-semibold text-white">Sistema de Detección de Intrusos (IDS)</h4>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Desarrollo de un IDS basado en Machine Learning utilizando el algoritmo **Random Forest** y **PCA** para clasificar tráfico de red malicioso (Ataque, DDoS) de tráfico Benigno, con una alta precisión.
+                    </p>
+                    <p class="text-sm font-medium text-neon mb-4">
+                        Tecnologías: Python, Scikit-learn, Flask (API), JavaScript (Frontend), HTML/CSS.
+                    </p>
+                    <a href="#" target="_blank" class="text-neon font-bold flex items-center hover:underline">
+                        Ver Demo <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Proyecto 2: Clasificación de Malware (Placeholder) -->
+                <div class="project-card p-6 rounded-xl bg-dark border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="code-square" class="w-6 h-6 text-yellow-500 mr-3"></i>
+                        <h4 class="text-2xl font-semibold text-white">Análisis Estático de Malware</h4>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Implementación de un clasificador binario para identificar familias de malware a partir de la estructura de archivos ejecutables (PE), sin necesidad de ejecutar el código.
+                    </p>
+                    <p class="text-sm font-medium text-neon mb-4">
+                        Tecnologías: Python, TensorFlow, Keras, Análisis de Cabeceras PE.
+                    </p>
+                    <a href="#" target="_blank" class="text-neon font-bold flex items-center hover:underline">
+                        Ver Código <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Habilidades (Skills) -->
+    <section id="habilidades" class="py-20 bg-dark px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-12 text-white">
+                <span class="text-neon">//</span> Habilidades Técnicas
+            </h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Habilidad 1: Python -->
+                <div class="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                    <i data-lucide="code" class="w-8 h-8 text-neon mx-auto mb-2"></i>
+                    <p class="font-semibold text-white">Python</p>
+                    <p class="text-xs text-gray-400">ML, Scripting, Automation</p>
+                </div>
+                <!-- Habilidad 2: Redes -->
+                <div class="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                    <i data-lucide="network" class="w-8 h-8 text-neon mx-auto mb-2"></i>
+                    <p class="font-semibold text-white">Redes & TCP/IP</p>
+                    <p class="text-xs text-gray-400">Análisis de Tráfico (Wireshark)</p>
+                </div>
+                <!-- Habilidad 3: Machine Learning -->
+                <div class="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                    <i data-lucide="brain" class="w-8 h-8 text-neon mx-auto mb-2"></i>
+                    <p class="font-semibold text-white">Machine Learning</p>
+                    <p class="text-xs text-gray-400">Random Forest, PCA, Regresión</p>
+                </div>
+                <!-- Habilidad 4: SO (Linux) -->
+                <div class="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                    <i data-lucide="server" class="w-8 h-8 text-neon mx-auto mb-2"></i>
+                    <p class="font-semibold text-white">Sistemas Operativos</p>
+                    <p class="text-xs text-gray-400">Linux, Bash/Shell Scripting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-20 bg-background px-6">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-4 text-white">
+                ¿Interesado en Colaborar?
+            </h3>
+            <p class="text-gray-400 mb-8">
+                Mi bandeja de entrada está siempre abierta para oportunidades de trabajo, proyectos de ciberseguridad o colaboración en investigación.
+            </p>
+
+            <form action="#" class="space-y-4">
+                <input type="text" placeholder="Tu Nombre" class="w-full p-3 rounded-lg bg-dark border border-gray-700 focus:border-neon focus:ring-neon text-white" required>
+                <input type="email" placeholder="Tu Correo Electrónico" class="w-full p-3 rounded-lg bg-dark border border-gray-700 focus:border-neon focus:ring-neon text-white" required>
+                <textarea rows="4" placeholder="Tu Mensaje..." class="w-full p-3 rounded-lg bg-dark border border-gray-700 focus:border-neon focus:ring-neon text-white" required></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-neon font-bold text-dark rounded-lg transition hover:shadow-neon">
+                    Enviar Mensaje
+                </button>
+            </form>
+
+            <div class="flex justify-center space-x-6 mt-10">
+                <a href="https://linkedin.com/in/tunombre" target="_blank" class="text-gray-400 hover:text-neon transition">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/tuusuario" target="_blank" class="text-gray-400 hover:text-neon transition">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:tu.correo@ejemplo.com" class="text-gray-400 hover:text-neon transition">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-6 bg-dark/50 border-t border-gray-700/50 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Tu Nombre. Desarrollado con Tailwind CSS y Neon Vibes.</p>
+    </footer>
+    
+    <!-- Script para inicializar los iconos de Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
