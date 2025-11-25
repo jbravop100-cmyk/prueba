@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- Iconos de Lucide: Usa la CDN para el uso de iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ESTILOS CSS (Personalizados y para Logs/Vectores) -->
     <style>
         :root {
             --color-primary: #66fcf1; /* Cian Neón */
@@ -32,6 +34,29 @@
             box-shadow: 0 10px 20px rgba(102, 252, 241, 0.3);
             border-color: var(--color-primary);
         }
+        
+        /* STYLES NECESARIOS PARA EL LOGGING */
+        .vector-box {
+            background-color: #1a232b;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #3a4a58;
+            cursor: pointer;
+            word-break: break-all;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+        .vector-box:hover {
+            background-color: #24303d;
+        }
+        #log-panel {
+            max-height: 400px;
+            overflow-y: scroll;
+            padding: 1rem;
+            border: 1px solid #3a4a58;
+            border-radius: 8px;
+            background-color: #1a232b;
+        }
     </style>
 </head>
 <body class="text-gray-300">
@@ -45,6 +70,8 @@
             <div class="space-x-4 flex">
                 <a href="#proyectos" class="hover:text-neon transition">Proyectos</a>
                 <a href="#habilidades" class="hover:text-neon transition">Habilidades</a>
+                <!-- NUEVO ENLACE PARA LOS LOGS -->
+                <a href="#logs" class="hover:text-neon transition">Logs (Honeypot)</a> 
                 <a href="#contacto" class="hover:text-neon transition">Contacto</a>
             </div>
         </div>
@@ -72,9 +99,30 @@
             </div>
         </div>
     </header>
+    
+    <!-- Sección de Logs (Honeypot) - NUEVA SECCIÓN PARA TI -->
+    <section id="logs" class="py-20 bg-background px-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-12 text-white">
+                <span class="text-neon">//</span> Logs de Tráfico (Honeypot de Bajo Nivel)
+            </h3>
+            <p class="text-center text-gray-400 mb-8">
+                Monitorea en tiempo real los metadatos de los visitantes de esta página. Solo visible para ti (el usuario autenticado).
+            </p>
+
+            <div class="flex justify-center mb-6">
+                <p id="auth-status" class="text-sm px-4 py-2 rounded-full bg-dark border border-gray-700"></p>
+            </div>
+
+            <div id="log-panel" class="space-y-4">
+                <p class="text-gray-500 text-center">Cargando datos de visitantes...</p>
+                <!-- Los logs se inyectarán aquí -->
+            </div>
+        </div>
+    </section>
 
     <!-- Sección de Proyectos -->
-    <section id="proyectos" class="py-20 bg-background px-6">
+    <section id="proyectos" class="py-20 bg-background px-6 border-t border-gray-800">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-4xl font-bold text-center mb-12 text-white">
                 <span class="text-neon">//</span> Proyectos Destacados
@@ -82,20 +130,56 @@
 
             <div class="grid md:grid-cols-2 gap-10">
                 
-                <!-- Proyecto 1: IDS (Tu proyecto reciente) -->
-                <div class="project-card p-6 rounded-xl bg-dark border border-gray-700/50">
+                <!-- Proyecto 1: IDS (Actualizado con Vectores) -->
+                <div class="project-card p-8 rounded-xl bg-dark border-4 border-neon shadow-2xl shadow-neon/20 col-span-2">
                     <div class="flex items-center mb-4">
-                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-500 mr-3"></i>
-                        <h4 class="text-2xl font-semibold text-white">Sistema de Detección de Intrusos (IDS)</h4>
+                        <i data-lucide="shield-alert" class="w-8 h-8 text-red-500 mr-4"></i>
+                        <h4 class="text-3xl font-bold text-white">IDS - Sentinel ML</h4>
                     </div>
                     <p class="text-gray-400 mb-4">
-                        Desarrollo de un IDS basado en Machine Learning utilizando el algoritmo **Random Forest** y **PCA** para clasificar tráfico de red malicioso (Ataque, DDoS) de tráfico Benigno, con una alta precisión.
+                        **Solución de Detección de Intrusos (IDS) de próxima generación** que utiliza Machine Learning avanzado para identificar y clasificar ataques de red en tiempo real.
                     </p>
-                    <p class="text-sm font-medium text-neon mb-4">
-                        Tecnologías: Python, Scikit-learn, Flask (API), JavaScript (Frontend), HTML/CSS.
-                    </p>
-                    <a href="#" target="_blank" class="text-neon font-bold flex items-center hover:underline">
-                        Ver Demo <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                    <ul class="list-disc list-inside text-gray-400 text-sm space-y-2 mb-6 ml-4">
+                        <li>Modelo **Random Forest** entrenado con 78 características para máxima precisión.</li>
+                        <li>Implementación de **PCA** para optimizar el rendimiento y la velocidad de clasificación.</li>
+                        <li>**Análisis de Incertidumbre:** Detecta anomalías con baja confianza (por debajo del 70%) en el tráfico benigno.</li>
+                    </ul>
+                    
+                    <h5 class="text-xl font-bold text-neon mb-4 border-t pt-4 border-gray-700">Vectores de Prueba para Demo</h5>
+                    <p class="text-sm text-gray-400 mb-4">Haz clic en cualquier vector para copiarlo y demostrar la capacidad del modelo.</p>
+                    
+                    <!-- Vectores -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Vector BENIGNO -->
+                        <div class="vector-box group" data-vector="0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0" onclick="copyVector(this)">
+                            <p class="text-xs font-bold text-neon">Tráfico Normal (Benigno)</p>
+                            <p class="text-xs text-gray-300 truncate mt-1">
+                                0.0, 0.0, 0.0, ... (78 ceros)
+                            </p>
+                            <span class="absolute top-1 right-1 text-xs text-gray-500 group-hover:text-neon transition">Copiar</span>
+                        </div>
+                        
+                        <!-- Vector ATAQUE (Por ejemplo, DDoS) -->
+                        <div class="vector-box group" data-vector="0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0" onclick="copyVector(this)">
+                            <p class="text-xs font-bold text-red-500">Ataque DDoS</p>
+                            <p class="text-xs text-gray-300 truncate mt-1">
+                                0.0, 0.0, 0.0, ..., 1.0 (Ejemplo de DDoS)
+                            </p>
+                            <span class="absolute top-1 right-1 text-xs text-gray-500 group-hover:text-neon transition">Copiar</span>
+                        </div>
+                        
+                        <!-- Vector ANOMALÍA (Baja Confianza) -->
+                        <div class="vector-box group" data-vector="0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5" onclick="copyVector(this)">
+                            <p class="text-xs font-bold text-yellow-500">Anomalía (Baja Confianza)</p>
+                            <p class="text-xs text-gray-300 truncate mt-1">
+                                0.0, 0.0, 0.0, ..., 0.5 (Tráfico Mixto)
+                            </p>
+                            <span class="absolute top-1 right-1 text-xs text-gray-500 group-hover:text-neon transition">Copiar</span>
+                        </div>
+                    </div>
+
+                    <a href="#" target="_blank" class="text-neon font-bold flex items-center mt-6 hover:underline">
+                        Ver Repositorio de Código <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
                     </a>
                 </div>
 
@@ -120,8 +204,8 @@
         </div>
     </section>
     
-    <!-- Sección de Habilidades (Skills) -->
-    <section id="habilidades" class="py-20 bg-dark px-6">
+    <!-- Sección de Habilidades (Skills) - Se mantiene la sección del usuario -->
+    <section id="habilidades" class="py-20 bg-dark px-6 border-t border-gray-800">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-4xl font-bold text-center mb-12 text-white">
                 <span class="text-neon">//</span> Habilidades Técnicas
@@ -157,7 +241,7 @@
     </section>
 
     <!-- Sección de Contacto -->
-    <section id="contacto" class="py-20 bg-background px-6">
+    <section id="contacto" class="py-20 bg-background px-6 border-t border-gray-800">
         <div class="max-w-xl mx-auto text-center">
             <h3 class="text-4xl font-bold mb-4 text-white">
                 ¿Interesado en Colaborar?
@@ -193,10 +277,193 @@
     <footer class="p-6 bg-dark/50 border-t border-gray-700/50 text-center text-sm text-gray-500">
         <p>&copy; 2024 Tu Nombre. Desarrollado con Tailwind CSS y Neon Vibes.</p>
     </footer>
-    
-    <!-- Script para inicializar los iconos de Lucide -->
-    <script>
+
+    <!-- Script de Copia de Vector y Firebase/Firestore para Logs (CRÍTICO) -->
+    <script type="module">
+        // Importaciones de Firebase (necesarias para la base de datos y la autenticación)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Inicializar Lucide Icons
         lucide.createIcons();
+        
+        // logs de depuración para Firestore
+        setLogLevel('Debug');
+
+        // Referencias a los elementos de la interfaz
+        const logPanel = document.getElementById('log-panel');
+        const authStatusElement = document.getElementById('auth-status');
+        
+        let db = null;
+        let auth = null;
+        let userId = null;
+
+        // --- FUNCIONES DE BASE DE DATOS Y AUTENTICACIÓN ---
+
+        /**
+         * Inicializa Firebase, autentica y registra el log del visitante.
+         */
+        async function initFirebaseAndLogVisitor() {
+            try {
+                // 1. Configuración y App ID (MANDATORY)
+                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+                const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+                
+                if (Object.keys(firebaseConfig).length === 0) {
+                    console.error("La configuración de Firebase no está disponible. Saltando la inicialización de DB.");
+                    authStatusElement.innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4 inline mr-1 text-yellow-500"></i> No conectado a DB.`;
+                    logPanel.innerHTML = `<p class="text-yellow-500 text-center">Modo local: No se pueden guardar logs de visitantes sin Firebase Config.</p>`;
+                    lucide.createIcons();
+                    return; 
+                }
+
+                // 2. Inicializar la App y los Servicios
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // 3. Autenticación (usando el token inicial o de forma anónima)
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                    userId = auth.currentUser.uid;
+                    authStatusElement.innerHTML = `<i data-lucide="user-check" class="w-4 h-4 inline mr-1 text-neon"></i> Logueado como: ${userId.substring(0, 8)}...`;
+                } else {
+                    await signInAnonymously(auth);
+                    userId = auth.currentUser.uid;
+                    authStatusElement.innerHTML = `<i data-lucide="user-plus" class="w-4 h-4 inline mr-1 text-yellow-500"></i> Sesión anónima: ${userId.substring(0, 8)}...`;
+                }
+                
+                lucide.createIcons(); 
+
+                // 4. Registrar la visita y escuchar los logs
+                await logVisitor();
+                setupLogsListener(appId, userId);
+
+            } catch (error) {
+                console.error("Error al inicializar Firebase o al autenticar:", error);
+                authStatusElement.innerHTML = `<i data-lucide="alert-octagon" class="w-4 h-4 inline mr-1 text-red-500"></i> Error al cargar logs.`;
+                logPanel.innerHTML = `<p class="text-red-500 text-center">No se pudieron cargar los logs: ${error.message}</p>`;
+                lucide.createIcons();
+            }
+        }
+
+        /**
+         * Obtiene la IP (simulada o real) y registra los metadatos del visitante en Firestore.
+         */
+        async function logVisitor() {
+            if (!db || !userId) return;
+
+            let publicIP = 'Simulada';
+            try {
+                // Intenta obtener la IP pública de un servicio externo
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                publicIP = ipData.ip || 'Simulada';
+            } catch (error) {
+                console.warn("No se pudo obtener la IP pública. Usando IP local simulada.");
+                publicIP = '192.168.' + Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255);
+            }
+
+            const logData = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                referrer: document.referrer || 'Directo',
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                publicIP: publicIP,
+                isMobile: /Mobi|Android/i.test(navigator.userAgent),
+                path: window.location.pathname,
+                securityLabel: 'BENIGNO_VISITA' 
+            };
+            
+            // Colección privada: artifacts/{appId}/users/{userId}/visitor_logs
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            const logCollectionPath = `artifacts/${appId}/users/${userId}/visitor_logs`;
+
+            try {
+                await addDoc(collection(db, logCollectionPath), logData);
+                // console.log("Log de visita registrado con éxito.");
+            } catch (e) {
+                console.error("Error al añadir el documento a Firestore:", e);
+            }
+        }
+
+        /**
+         * Configura el listener de tiempo real (onSnapshot) para mostrar los logs.
+         */
+        function setupLogsListener(appId, currentUserId) {
+            if (!db) return;
+
+            const logCollectionPath = `artifacts/${appId}/users/${currentUserId}/visitor_logs`;
+            const logsRef = collection(db, logCollectionPath);
+            
+            // Consulta: obtener los últimos 10 logs, ordenados por marca de tiempo descendente
+            const q = query(logsRef, orderBy("timestamp", "desc"), limit(10));
+
+            onSnapshot(q, (snapshot) => {
+                logPanel.innerHTML = ''; // Limpiar panel
+                if (snapshot.empty) {
+                    logPanel.innerHTML = '<p class="text-gray-500 text-center">Aún no hay logs de visitantes.</p>';
+                    return;
+                }
+
+                snapshot.docs.forEach((doc) => {
+                    const data = doc.data();
+                    const date = new Date(data.timestamp).toLocaleTimeString('es-ES');
+                    
+                    let labelColor = 'text-green-400'; 
+                    if (data.publicIP === 'Simulada' || data.publicIP.startsWith('192.168')) { 
+                        labelColor = 'text-yellow-500 font-bold';
+                    }
+
+                    const logEntry = `
+                        <div class="border-b border-gray-700 pb-2">
+                            <p class="text-sm font-bold ${labelColor}">${data.securityLabel} <span class="text-gray-500 font-normal">(${date})</span></p>
+                            <p class="text-xs text-gray-400">IP: <span class="text-neon">${data.publicIP}</span> | Res: ${data.screenResolution}</p>
+                            <p class="text-xs text-gray-500 truncate">UA: ${data.userAgent}</p>
+                            <p class="text-xs text-gray-500">Referencia: ${data.referrer}</p>
+                        </div>
+                    `;
+                    logPanel.innerHTML += logEntry;
+                });
+            }, (error) => {
+                console.error("Error en el listener de logs:", error);
+                logPanel.innerHTML = `<p class="text-red-500 text-center">Error al cargar datos en tiempo real.</p>`;
+            });
+        }
+
+        // --- FUNCIONES DE INTERFAZ DE USUARIO ---
+
+        /**
+         * Copia el vector de datos al portapapeles.
+         */
+        function copyVector(element) {
+            const vector = element.getAttribute('data-vector');
+            if (vector) {
+                // Usar document.execCommand('copy') por restricciones de iframe
+                const tempInput = document.createElement('textarea');
+                tempInput.value = vector;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Feedback visual
+                element.style.boxShadow = '0 0 10px #66fcf1';
+                setTimeout(() => {
+                    element.style.boxShadow = 'none';
+                }, 500);
+            }
+        }
+        
+        // Exponer la función de copia globalmente
+        window.copyVector = copyVector;
+
+        // Iniciar el proceso al cargar la página
+        window.onload = initFirebaseAndLogVisitor;
+
     </script>
 </body>
 </html>
